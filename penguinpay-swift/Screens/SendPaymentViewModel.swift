@@ -5,7 +5,7 @@
 //  Created by Yan Correa Trindade on 07/02/22.
 //
 
-import Foundation
+import UIKit
 
 class SendPaymentViewModel {
     
@@ -33,4 +33,20 @@ class SendPaymentViewModel {
         }
     }
     
+    func canChangeNumberString(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String, phonePrefix: String?)-> Bool {
+        guard let phonePrefix = phonePrefix,
+            let countrySelected = findCountryWithPhonePrefix(phonePrefix) else {
+            return false
+        }
+        if string.isEmpty {
+            return true
+        } else {
+            let newLength = textField.text?.count ?? 0 + string.count - range.length
+            return newLength < countrySelected.digitsAfterPrefix
+        }
+    }
+    
+    private func findCountryWithPhonePrefix(_ phonePrefix: String)-> Country? {
+        return countries.first(where: {$0.phonePrefix == phonePrefix})
+    }
 }

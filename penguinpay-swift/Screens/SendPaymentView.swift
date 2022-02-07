@@ -221,6 +221,10 @@ extension SendPaymentView: RenderViewProtocol {
             verticalStackview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             verticalStackview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
         ])
+        
+        NSLayoutConstraint.activate([
+            phoneCountryCodeLabel.widthAnchor.constraint(equalToConstant: 40)
+        ])
     }
     
     func setupAdditionalConfiguration() {

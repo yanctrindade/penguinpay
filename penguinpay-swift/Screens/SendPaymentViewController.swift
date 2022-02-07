@@ -29,16 +29,21 @@ class SendPaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Send Transaction"
-        uiController.delegate = self
-        setupPickerView()
+        setupUI()
         viewModel.getRates()
     }
 
-    private func setupPickerView() {
+    private func setupUI() {
+        uiController.delegate = self
         uiController.countryPickerView.dataSource = self
         uiController.countryPickerView.delegate = self
         uiController.countryTextField.delegate = self
+        uiController.phoneTextField.delegate = self
+        let firstElement = 0
+        uiController.setCountryText(text: viewModel.getCountryTextForPickerViewFor(firstElement))
+        uiController.phoneCountryCodeLabel.text = viewModel.countries[firstElement].phonePrefix
     }
+    
 }
 
 extension SendPaymentViewController: SendPaymentViewDelegate {
@@ -50,7 +55,14 @@ extension SendPaymentViewController: SendPaymentViewDelegate {
 }
 
 extension SendPaymentViewController: UITextFieldDelegate {
-
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return viewModel.canChangeNumberString(textField: textField,
+                                               shouldChangeCharactersIn: range,
+                                               replacementString: string,
+                                               phonePrefix: uiController.phoneCountryCodeLabel.text)
+    }
+    
 }
 
 extension SendPaymentViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -70,6 +82,7 @@ extension SendPaymentViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         uiController.setCountryText(text: viewModel.getCountryTextForPickerViewFor(row))
         uiController.phoneCountryCodeLabel.text = viewModel.countries[row].phonePrefix
+        uiController.phoneTextField.text = nil
     }
     
 }
