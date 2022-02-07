@@ -28,8 +28,17 @@ class SendPaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        uiController.delegate = self
+        title = "Send Transaction"
     }
 
+}
+
+extension SendPaymentViewController: SendPaymentViewDelegate {
+    
+    func sendMoneyButtonTapped() {
+        print("send money method called on vc")
+    }
+    
 }
 
