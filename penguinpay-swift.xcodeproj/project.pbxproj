@@ -22,6 +22,8 @@
 		8FBAD55B27B0CEE2004263D8 /* SendPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55A27B0CEE2004263D8 /* SendPaymentViewModel.swift */; };
 		8FBAD55D27B0CEEA004263D8 /* SendPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55C27B0CEEA004263D8 /* SendPaymentView.swift */; };
 		8FBAD56027B17A67004263D8 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55F27B17A67004263D8 /* Country.swift */; };
+		8FBAD56327B18174004263D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD56227B18174004263D8 /* Constants.swift */; };
+		8FBAD56527B181D9004263D8 /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD56427B181D9004263D8 /* Rates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		8FBAD55A27B0CEE2004263D8 /* SendPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPaymentViewModel.swift; sourceTree = "<group>"; };
 		8FBAD55C27B0CEEA004263D8 /* SendPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPaymentView.swift; sourceTree = "<group>"; };
 		8FBAD55F27B17A67004263D8 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		8FBAD56227B18174004263D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8FBAD56427B181D9004263D8 /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 				8FBAD55027B0CDC8004263D8 /* Screens */,
 				8FBAD55727B0CE01004263D8 /* Protocols */,
 				8FBAD55427B0CDEF004263D8 /* Extensions */,
+				8FBAD56127B18169004263D8 /* Utils */,
 				8FBAD52427B0CCD1004263D8 /* Main.storyboard */,
 				8FBAD52727B0CCD4004263D8 /* Assets.xcassets */,
 				8FBAD52927B0CCD4004263D8 /* LaunchScreen.storyboard */,
@@ -181,8 +186,17 @@
 			isa = PBXGroup;
 			children = (
 				8FBAD55F27B17A67004263D8 /* Country.swift */,
+				8FBAD56427B181D9004263D8 /* Rates.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8FBAD56127B18169004263D8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8FBAD56227B18174004263D8 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,9 +335,11 @@
 				8FBAD55B27B0CEE2004263D8 /* SendPaymentViewModel.swift in Sources */,
 				8FBAD52327B0CCD1004263D8 /* SendPaymentViewController.swift in Sources */,
 				8FBAD55D27B0CEEA004263D8 /* SendPaymentView.swift in Sources */,
+				8FBAD56327B18174004263D8 /* Constants.swift in Sources */,
 				8FBAD55927B0CE0F004263D8 /* RenderViewController.swift in Sources */,
 				8FBAD55627B0CDFC004263D8 /* UIViewController+Extensions.swift in Sources */,
 				8FBAD55327B0CDEB004263D8 /* APIClient.swift in Sources */,
+				8FBAD56527B181D9004263D8 /* Rates.swift in Sources */,
 				8FBAD51F27B0CCD1004263D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

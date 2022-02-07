@@ -21,4 +21,16 @@ class SendPaymentViewModel {
         let country = countries[row]
         return country.flag + country.name
     }
+    
+    func getRates() {
+        apiClient.getRates { [weak self] result in
+            switch result {
+            case .success(let rates):
+                print(rates.rates.count)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }

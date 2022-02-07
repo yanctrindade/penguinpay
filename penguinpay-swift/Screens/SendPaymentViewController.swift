@@ -31,6 +31,7 @@ class SendPaymentViewController: UIViewController {
         title = "Send Transaction"
         uiController.delegate = self
         setupPickerView()
+        viewModel.getRates()
     }
 
     private func setupPickerView() {
