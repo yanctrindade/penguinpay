@@ -24,6 +24,7 @@
 		8FBAD56027B17A67004263D8 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55F27B17A67004263D8 /* Country.swift */; };
 		8FBAD56327B18174004263D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD56227B18174004263D8 /* Constants.swift */; };
 		8FBAD56527B181D9004263D8 /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD56427B181D9004263D8 /* Rates.swift */; };
+		8FBAD56927B1AAA7004263D8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD56827B1AAA7004263D8 /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		8FBAD55F27B17A67004263D8 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		8FBAD56227B18174004263D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8FBAD56427B181D9004263D8 /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
+		8FBAD56827B1AAA7004263D8 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,9 +153,8 @@
 		8FBAD55027B0CDC8004263D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				8FBAD55C27B0CEEA004263D8 /* SendPaymentView.swift */,
-				8FBAD55A27B0CEE2004263D8 /* SendPaymentViewModel.swift */,
-				8FBAD52227B0CCD1004263D8 /* SendPaymentViewController.swift */,
+				8FBAD56727B1AA96004263D8 /* SplashScreen */,
+				8FBAD56627B1AA8B004263D8 /* SendPayment */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -197,6 +198,24 @@
 				8FBAD56227B18174004263D8 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8FBAD56627B1AA8B004263D8 /* SendPayment */ = {
+			isa = PBXGroup;
+			children = (
+				8FBAD55C27B0CEEA004263D8 /* SendPaymentView.swift */,
+				8FBAD55A27B0CEE2004263D8 /* SendPaymentViewModel.swift */,
+				8FBAD52227B0CCD1004263D8 /* SendPaymentViewController.swift */,
+			);
+			path = SendPayment;
+			sourceTree = "<group>";
+		};
+		8FBAD56727B1AA96004263D8 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8FBAD56827B1AAA7004263D8 /* SplashViewController.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +352,7 @@
 				8FBAD54F27B0CD1B004263D8 /* AppCoordinator.swift in Sources */,
 				8FBAD56027B17A67004263D8 /* Country.swift in Sources */,
 				8FBAD55B27B0CEE2004263D8 /* SendPaymentViewModel.swift in Sources */,
+				8FBAD56927B1AAA7004263D8 /* SplashViewController.swift in Sources */,
 				8FBAD52327B0CCD1004263D8 /* SendPaymentViewController.swift in Sources */,
 				8FBAD55D27B0CEEA004263D8 /* SendPaymentView.swift in Sources */,
 				8FBAD56327B18174004263D8 /* Constants.swift in Sources */,

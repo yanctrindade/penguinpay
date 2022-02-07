@@ -30,10 +30,10 @@ class SendPaymentViewController: UIViewController {
         super.viewDidLoad()
         title = "Send Transaction"
         setupUI()
-        viewModel.getRates()
     }
 
     private func setupUI() {
+        navigationItem.hidesBackButton = true
         uiController.delegate = self
         uiController.countryPickerView.dataSource = self
         uiController.countryPickerView.delegate = self

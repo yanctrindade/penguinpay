@@ -20,21 +20,17 @@ class AppCoordinator {
     }
     
     func start() {
-        let viewModel = SendPaymentViewModel(countries: getCountriesData())
-        let viewController = SendPaymentViewController(viewModel: viewModel)
+        let viewController = SplashViewController()
         self.presenter = UINavigationController(rootViewController: viewController)
         self.appDelegate?.window = self.window
         window.rootViewController = presenter
         window.makeKeyAndVisible()
     }
     
-    private func getCountriesData()-> [Country] {
-        var countries: [Country]  = []
-        countries.append(Country(name: "Kenya", currencyAbbreviation: "KES", phonePrefix: "+254", flag: "🇰🇪", digitsAfterPrefix: 9))
-        countries.append(Country(name: "Nigeria", currencyAbbreviation: "NGN", phonePrefix: "+234", flag: "🇳🇬", digitsAfterPrefix: 7))
-        countries.append(Country(name: "Tanzania", currencyAbbreviation: "TZS", phonePrefix: "+255", flag: "🇹🇿", digitsAfterPrefix: 9))
-        countries.append(Country(name: "Uganda", currencyAbbreviation: "UGX", phonePrefix: "+256", flag: "🇺🇬", digitsAfterPrefix: 7))
-        return countries
+    func splashToSendPayment(countries: [Country], rates: Rates) {
+        let viewModel = SendPaymentViewModel(countries: countries, rates: rates)
+        let viewController = SendPaymentViewController(viewModel: viewModel)
+        presenter.pushViewController(viewController, animated: true)
     }
     
 }
