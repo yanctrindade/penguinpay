@@ -28,10 +28,16 @@ class SendPaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        uiController.delegate = self
         title = "Send Transaction"
+        uiController.delegate = self
+        setupPickerView()
     }
 
+    private func setupPickerView() {
+        uiController.countryPickerView.dataSource = self
+        uiController.countryPickerView.delegate = self
+        uiController.countryTextField.delegate = self
+    }
 }
 
 extension SendPaymentViewController: SendPaymentViewDelegate {
@@ -42,3 +48,27 @@ extension SendPaymentViewController: SendPaymentViewDelegate {
     
 }
 
+extension SendPaymentViewController: UITextFieldDelegate {
+
+}
+
+extension SendPaymentViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return viewModel.PICKER_COLUMNS_NUMBER
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel.countries.count
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.getCountryTextForPickerViewFor(row)
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        uiController.setCountryText(text: viewModel.getCountryTextForPickerViewFor(row))
+        uiController.phoneCountryCodeLabel.text = viewModel.countries[row].phonePrefix
+    }
+    
+}

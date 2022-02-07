@@ -21,6 +21,7 @@
 		8FBAD55927B0CE0F004263D8 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55827B0CE0F004263D8 /* RenderViewController.swift */; };
 		8FBAD55B27B0CEE2004263D8 /* SendPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55A27B0CEE2004263D8 /* SendPaymentViewModel.swift */; };
 		8FBAD55D27B0CEEA004263D8 /* SendPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55C27B0CEEA004263D8 /* SendPaymentView.swift */; };
+		8FBAD56027B17A67004263D8 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD55F27B17A67004263D8 /* Country.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		8FBAD55827B0CE0F004263D8 /* RenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
 		8FBAD55A27B0CEE2004263D8 /* SendPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPaymentViewModel.swift; sourceTree = "<group>"; };
 		8FBAD55C27B0CEEA004263D8 /* SendPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPaymentView.swift; sourceTree = "<group>"; };
+		8FBAD55F27B17A67004263D8 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +113,11 @@
 			children = (
 				8FBAD51E27B0CCD1004263D8 /* AppDelegate.swift */,
 				8FBAD54E27B0CD1B004263D8 /* AppCoordinator.swift */,
-				8FBAD55427B0CDEF004263D8 /* Extensions */,
+				8FBAD55E27B173EE004263D8 /* Models */,
 				8FBAD55127B0CDD6004263D8 /* Network */,
 				8FBAD55027B0CDC8004263D8 /* Screens */,
 				8FBAD55727B0CE01004263D8 /* Protocols */,
+				8FBAD55427B0CDEF004263D8 /* Extensions */,
 				8FBAD52427B0CCD1004263D8 /* Main.storyboard */,
 				8FBAD52727B0CCD4004263D8 /* Assets.xcassets */,
 				8FBAD52927B0CCD4004263D8 /* LaunchScreen.storyboard */,
@@ -172,6 +175,14 @@
 				8FBAD55827B0CE0F004263D8 /* RenderViewController.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8FBAD55E27B173EE004263D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FBAD55F27B17A67004263D8 /* Country.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBAD54F27B0CD1B004263D8 /* AppCoordinator.swift in Sources */,
+				8FBAD56027B17A67004263D8 /* Country.swift in Sources */,
 				8FBAD55B27B0CEE2004263D8 /* SendPaymentViewModel.swift in Sources */,
 				8FBAD52327B0CCD1004263D8 /* SendPaymentViewController.swift in Sources */,
 				8FBAD55D27B0CEEA004263D8 /* SendPaymentView.swift in Sources */,

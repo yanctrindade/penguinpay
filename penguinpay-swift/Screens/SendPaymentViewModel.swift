@@ -9,6 +9,16 @@ import Foundation
 
 class SendPaymentViewModel {
     
-    init() {}
+    let PICKER_COLUMNS_NUMBER = 1
+    let apiClient = APIClient()
+    var countries:[Country]
     
+    init(countries: [Country]) {
+        self.countries = countries
+    }
+    
+    func getCountryTextForPickerViewFor(_ row: Int)-> String {
+        let country = countries[row]
+        return country.flag + country.name
+    }
 }
