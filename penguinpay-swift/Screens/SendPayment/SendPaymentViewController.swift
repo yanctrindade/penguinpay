@@ -37,7 +37,7 @@ class SendPaymentViewController: UIViewController {
         uiController.delegate = self
         uiController.countryPickerView.dataSource = self
         uiController.countryPickerView.delegate = self
-        uiController.countryTextField.delegate = self
+        uiController.amountToSendTextField.delegate = self
         uiController.phoneTextField.delegate = self
         let firstElement = 0
         uiController.setCountryText(text: viewModel.getCountryTextForPickerViewFor(firstElement))
@@ -49,7 +49,12 @@ class SendPaymentViewController: UIViewController {
 extension SendPaymentViewController: SendPaymentViewDelegate {
     
     func sendMoneyButtonTapped() {
-        print("send money method called on vc")
+        let country = viewModel.findCountryWithPhonePrefix(uiController.phoneCountryCodeLabel.text ?? "")
+        let result = viewModel.convertAmount(binaryValue: uiController.amountToSendTextField.text, country: country)
+        guard let result = result else {
+            return
+        }
+        uiController.resultLabel.text = "The recipient will receive: \(result)"
     }
     
 }
@@ -57,12 +62,17 @@ extension SendPaymentViewController: SendPaymentViewDelegate {
 extension SendPaymentViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return viewModel.canChangeNumberString(textField: textField,
-                                               shouldChangeCharactersIn: range,
-                                               replacementString: string,
-                                               phonePrefix: uiController.phoneCountryCodeLabel.text)
+        if textField == uiController.phoneTextField {
+            return viewModel.canChangeNumberString(textField: textField,
+                                                   shouldChangeCharactersIn: range,
+                                                   replacementString: string,
+                                                   phonePrefix: uiController.phoneCountryCodeLabel.text)
+        } else if textField == uiController.amountToSendTextField {
+            return viewModel.validateBinaryInput(input: string)
+        } else{
+            return true
+        }
     }
-    
 }
 
 extension SendPaymentViewController: UIPickerViewDelegate, UIPickerViewDataSource {

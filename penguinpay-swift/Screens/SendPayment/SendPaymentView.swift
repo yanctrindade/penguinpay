@@ -86,25 +86,6 @@ class SendPaymentView: UIView {
         return pickerView
     }()
     
-    lazy var activityTypeTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Select Activity Type"
-        textField.borderStyle = .roundedRect
-        
-        var pickerAccessory = UIToolbar()
-        pickerAccessory.autoresizingMask = .flexibleHeight
-        var frame = pickerAccessory.frame
-        frame.size.height = 44.0
-        pickerAccessory.frame = frame
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnClicked(_:)))
-        pickerAccessory.items = [flexSpace, flexSpace, doneButton]
-        textField.inputAccessoryView = pickerAccessory
-        
-        return textField
-    }()
-    
     var horizontalStackview: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -126,7 +107,6 @@ class SendPaymentView: UIView {
     var phoneCountryCodeLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        label.text = "+55"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -155,6 +135,13 @@ class SendPaymentView: UIView {
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
+    }()
+    
+    var resultLabel: UILabel = {
+        var label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     var sendButton: UIButton = {
@@ -211,6 +198,7 @@ extension SendPaymentView: RenderViewProtocol {
         verticalStackview.addArrangedSubview(amounToSendtLabel)
         verticalStackview.addArrangedSubview(amountToSendTextField)
         verticalStackview.addArrangedSubview(sendButton)
+        verticalStackview.addArrangedSubview(resultLabel)
         
         addSubview(verticalStackview)
     }
@@ -223,7 +211,7 @@ extension SendPaymentView: RenderViewProtocol {
         ])
         
         NSLayoutConstraint.activate([
-            phoneCountryCodeLabel.widthAnchor.constraint(equalToConstant: 40)
+            phoneCountryCodeLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 40)
         ])
     }
     

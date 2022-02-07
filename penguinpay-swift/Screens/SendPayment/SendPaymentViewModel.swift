@@ -37,7 +37,35 @@ class SendPaymentViewModel {
         return newLength < countrySelected.digitsAfterPrefix
     }
     
-    private func findCountryWithPhonePrefix(_ phonePrefix: String)-> Country? {
+    func findCountryWithPhonePrefix(_ phonePrefix: String)-> Country? {
         return countries.first(where: {$0.phonePrefix == phonePrefix})
+    }
+    
+    func validateBinaryInput(input: String) -> Bool{
+        if input.isEmpty {
+            return true
+        }else{
+            let regex = "[0-1]"
+            return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: input)
+        }
+    }
+    
+    func convertAmount(binaryValue: String?, country: Country?) -> String? {
+        guard let binaryValue = binaryValue,
+            let countrySelected = country,
+              let rate = rates?.rates[countrySelected.currencyAbbreviation] else {
+            return nil
+        }
+        
+        guard let intValue = Int(binaryValue, radix: 2) else {
+            return nil
+        }
+        let exchangedValue = Float(intValue) * rate
+        
+        if exchangedValue > Float(Int.max) {
+            return "Max Value Reached"
+        } else {
+            return String(Int(exchangedValue), radix: 2)
+        }
     }
 }
