@@ -32,7 +32,6 @@ class SendPaymentViewModel {
             return true
         }
         let newLength = textField.text?.count ?? 0 + string.count
-        print("textfieldText: \(textField.text?.count ?? 0) String: \(string.count) Total: \(newLength)")
         return newLength < countrySelected.digitsAfterPrefix
     }
     
