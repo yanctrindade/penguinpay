@@ -23,17 +23,16 @@ class SendPaymentViewModel {
         return country.flag + country.name
     }
     
-    func canChangeNumberString(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String, phonePrefix: String?)-> Bool {
-        guard let phonePrefix = phonePrefix,
-            let countrySelected = findCountryWithPhonePrefix(phonePrefix) else {
+    func canChangeNumberString(textField: UITextField, replacementString string: String, country: Country?)-> Bool {
+        guard let countrySelected = country else {
             return false
         }
         
         guard !string.isEmpty else {
             return true
         }
-        
-        let newLength = textField.text?.count ?? 0 + string.count - range.length
+        let newLength = textField.text?.count ?? 0 + string.count
+        print("textfieldText: \(textField.text?.count ?? 0) String: \(string.count) Total: \(newLength)")
         return newLength < countrySelected.digitsAfterPrefix
     }
     
@@ -41,7 +40,7 @@ class SendPaymentViewModel {
         return countries.first(where: {$0.phonePrefix == phonePrefix})
     }
     
-    func validateBinaryInput(input: String) -> Bool{
+    func validateBinaryInput(input: String) -> Bool {
         if input.isEmpty {
             return true
         }else{

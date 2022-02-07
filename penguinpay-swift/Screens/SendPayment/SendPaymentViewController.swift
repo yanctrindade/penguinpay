@@ -63,10 +63,10 @@ extension SendPaymentViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == uiController.phoneTextField {
+            let country = viewModel.findCountryWithPhonePrefix(uiController.phoneCountryCodeLabel.text ?? "")
             return viewModel.canChangeNumberString(textField: textField,
-                                                   shouldChangeCharactersIn: range,
                                                    replacementString: string,
-                                                   phonePrefix: uiController.phoneCountryCodeLabel.text)
+                                                   country: country)
         } else if textField == uiController.amountToSendTextField {
             return viewModel.validateBinaryInput(input: string)
         } else{
