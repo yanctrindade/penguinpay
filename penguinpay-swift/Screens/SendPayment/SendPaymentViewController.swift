@@ -49,11 +49,13 @@ class SendPaymentViewController: UIViewController {
 extension SendPaymentViewController: SendPaymentViewDelegate {
     
     func sendMoneyButtonTapped() {
-        let country = viewModel.findCountryWithPhonePrefix(uiController.phoneCountryCodeLabel.text ?? "")
-        let result = viewModel.convertAmount(binaryValue: uiController.amountToSendTextField.text, country: country)
-        guard let result = result else {
+        guard !uiController.checkBlankFields() else {
+            presentAlert(title: "Ops", message: "There are blank fields")
             return
         }
+        let country = viewModel.findCountryWithPhonePrefix(uiController.phoneCountryCodeLabel.text ?? "")
+        let result = viewModel.convertAmount(binaryValue: uiController.amountToSendTextField.text, country: country)
+        guard let result = result else { return }
         uiController.resultLabel.text = "The recipient will receive: \(result)"
     }
     

@@ -181,6 +181,16 @@ class SendPaymentView: UIView {
         countryPickerView.resignFirstResponder()
     }
     
+    func checkBlankFields()-> Bool {
+        if firstNameTextField.text?.isEmpty ?? true
+            || lastNameTextField.text?.isEmpty ?? true
+            || phoneTextField.text?.isEmpty ?? true
+            || amountToSendTextField.text?.isEmpty ?? true{
+            return true
+        }
+        return false
+    }
+    
 }
 
 extension SendPaymentView: RenderViewProtocol {
